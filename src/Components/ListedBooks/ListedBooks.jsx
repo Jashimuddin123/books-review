@@ -1,92 +1,127 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./lissted.css";
+import { FaLocationDot } from "react-icons/fa6";
+import { VscAccount } from "react-icons/vsc";
+import { PiSimCardDuotone } from "react-icons/pi";
 
 const ListedBooks = () => {
-    const [readBooks, setReadBooks] = useState([]);
-    const [wishlistBooks, setWishlistBooks] = useState([]);
-    const [activeTab, setActiveTab] = useState('read');
-    const [sortOption, setSortOption] = useState('rating');
+  const [readBooks, setReadBooks] = useState([]);
+  const [wishlistBooks, setWishlistBooks] = useState([]);
+  const [activeTab, setActiveTab] = useState("read");
+  const [sortOption, setSortOption] = useState("rating");
 
-    useEffect(() => {
-        const storedReadBooks = JSON.parse(localStorage.getItem('readList')) || [];
-        const storedWishlistBooks = JSON.parse(localStorage.getItem('wishlist')) || [];
-        setReadBooks(storedReadBooks);
-        setWishlistBooks(storedWishlistBooks);
-    }, []);
+  useEffect(() => {
+    const storedReadBooks = JSON.parse(localStorage.getItem("readList")) || [];
+    const storedWishlistBooks =
+      JSON.parse(localStorage.getItem("wishlist")) || [];
+    setReadBooks(storedReadBooks);
+    setWishlistBooks(storedWishlistBooks);
+  }, []);
 
-    const sortBooks = (books) => {
-        switch (sortOption) {
-            case 'rating':
-                return [...books].sort((a, b) => b.rating - a.rating);
-            case 'totalPages':
-                return [...books].sort((a, b) => b.totalPages - a.totalPages);
-            case 'yearOfPublishing':
-                return [...books].sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
-            default:
-                return books;
-        }
-    };
+  const sortBooks = (books) => {
+    switch (sortOption) {
+      case "rating":
+        return [...books].sort((a, b) => b.rating - a.rating);
+      case "totalPages":
+        return [...books].sort((a, b) => b.totalPages - a.totalPages);
+      case "yearOfPublishing":
+        return [...books].sort(
+          (a, b) => b.yearOfPublishing - a.yearOfPublishing
+        );
+      default:
+        return books;
+    }
+  };
 
-    const renderBooks = (books) => {
-        return books.map((book, index) => (
-            <div key={index} className="bg-white shadow-md rounded-lg p-4 mb-6 w-full max-w-md">
-                <img src={book.image} alt={book.bookName} className="w-full h-64 object-cover rounded-t-lg mb-4" />
-                <div className="card-details space-y-2">
-                    <h2 className="text-2xl font-bold">{book.bookName}</h2>
-                    <p className="text-gray-700">By: {book.author}</p>
-                    <p className="text-gray-700">Category: {book.category}</p>
-                    <p className="text-gray-700">Tags: {book.tags}</p>
-                    <p className="text-gray-700">Total Pages: {book.totalPages}</p>
-                    <p className="text-gray-700">Publisher: {book.publisher}</p>
-                    <p className="text-gray-700">Year of Publishing: {book.yearOfPublishing}</p>
-                    <p className="text-gray-700">Rating: {book.rating}</p>
-                    <Link to={`/book/${book.id}`}>
-                        <button className="bg-blue-500 text-white py-2 px-4 rounded">View Details</button>
-                    </Link>
-                </div>
+  const renderBooks = (books) => {
+    return books.map((book, index) => (
+      <div key={index} className="book-card ">
+        <img src={book.image} alt={book.bookName} className="book-image" />
+        <div className="book-details">
+          <h2 className="book-title text-3xl font-bold">{book.bookName}</h2>
+          <p className="book-info text-lg font-semibold my-4">By: {book.author}</p>
+          <div className="flex items-center my-4 gap-8">
+               <div>
+               {book.tags.map((tag, index) => (
+              <span
+                className=" border px-2 py-0.5 text-md text-green-500 font-semibold rounded whitespace-nowrap"
+                key={index}
+              >
+                #{tag}
+              </span>
+              
+            ))}
+               </div>
+            <div className="flex items-center text-gray-600 gap-2"> 
+            <FaLocationDot />
+            <span>Year of Publishing:{book.yearOfPublishing}</span>
             </div>
-        ));
-    };
-
-    return (
-        <div className="container mx-auto p-4">
-            <header className="mb-4">
-                <h1 className="text-4xl font-bold">Listed Books</h1>
-            </header>
-            <div className="flex justify-between items-center mb-4">
-                <div className="tabs flex space-x-4">
-                    <button
-                        className={`tab ${activeTab === 'read' ? 'bg-blue-500 text-white' : 'bg-gray-200'} py-2 px-4 rounded`}
-                        onClick={() => setActiveTab('read')}
-                    >
-                        Read Books
-                    </button>
-                    <button
-                        className={`tab ${activeTab === 'wishlist' ? 'bg-blue-500 text-white' : 'bg-gray-200'} py-2 px-4 rounded`}
-                        onClick={() => setActiveTab('wishlist')}
-                    >
-                        Wishlist Books
-                    </button>
-                </div>
-                <div className="sort">
-                    <label htmlFor="sort" className="mr-2">Sort by: </label>
-                    <select
-                        id="sort"
-                        value={sortOption}
-                        onChange={(e) => setSortOption(e.target.value)}
-                        className="bg-gray-200 py-2 px-4 rounded"
-                    >
-                        <option value="rating">Rating</option>
-                        <option value="totalPages">Number of Pages</option>
-                        <option value="yearOfPublishing">Published Year</option>
-                    </select>
-                </div>
+          </div>
+          <div className="flex gap-10 text-lg items-center">
+            <div className="flex gap-2 items-center">
+                <span><VscAccount /></span>
+                <p>Publisher: {book.publisher}</p>
             </div>
-            <div className="book-list grid grid-cols-1  gap-6">
-                {activeTab === 'read' ? renderBooks(sortBooks(readBooks)) : renderBooks(sortBooks(wishlistBooks))}
+            <div  className="flex gap-2 items-center">
+                <span><PiSimCardDuotone /></span>
+                <p>Page:{book.totalPages}</p>
             </div>
+          </div>
+                <div className="flex items-center flex-col lg:flex-row mt-4  gap-8">
+                < button className="book-info bg-sky-200 px-4 py-2 rounded-full">Category:{book.category}</button>
+          <button className="text-yellow-600 bg-orange-100 px-8 py-2   rounded-full">Ratings:{book.rating}</button>
+          <Link to={`/book/${book.id}`}>
+            <button className="bg-green-500 text-white rounded-full w-full  px-8 py-2">View Details</button>
+          </Link>
+                </div>
         </div>
-    );
+      </div>
+    ));
+  };
+
+  return (
+    <div className="container  max-w-6xl mx-auto">
+      <header>
+        <h1 className="text-center text-3xl p-4 font-bold bg-gray-100 mt-4">
+          Listed Books
+        </h1>
+        <div className="sort  text-lg font-bold border-none rounded w-32 mx-auto">
+          <label htmlFor="sort ">Sort by: </label>
+          <select
+            className="bg-green-200"
+            id="sort"
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
+          >
+            <option value="rating">Rating</option>
+            <option value="totalPages">Number of Pages</option>
+            <option value="yearOfPublishing">Published Year</option>
+          </select>
+        </div>
+      </header>
+      <div className="tabs">
+        <button
+          className={`tab ${activeTab === "read" ? "active" : ""}`}
+          onClick={() => setActiveTab("read")}
+        >
+          Read Books
+        </button>
+        <button
+          className={`tab ${activeTab === "wishlist" ? "active" : ""}`}
+          onClick={() => setActiveTab("wishlist")}
+        >
+          Wishlist Books
+        </button>
+      </div>
+
+      <div className="book-list">
+        {activeTab === "read"
+          ? renderBooks(sortBooks(readBooks))
+          : renderBooks(sortBooks(wishlistBooks))}
+      </div>
+    </div>
+  );
 };
 
 export default ListedBooks;

@@ -8,7 +8,7 @@ const BookDetails = () => {
         return <div>Book not found.</div>;
     }
 
-    const { bookName, author, image, category, rating, description, totalPages, publisher, yearOfPublishing } = book;
+    const { bookName, author, image, review, category, rating, description, totalPages, publisher, yearOfPublishing } = book;
 
     const handleAddToList = (listType) => {
         const existingReadList = JSON.parse(localStorage.getItem('readList')) || [];
@@ -62,7 +62,7 @@ const BookDetails = () => {
     };
 
     return (
-        <div className="flex justify-around mt-10">
+        <div className="flex flex-col lg:flex-row mx-10 justify-around mt-10  mb-10">
             <div>
                 <img className="w-[500px] h-[500px] rounded" src={image} alt="" />
             </div>
@@ -72,6 +72,7 @@ const BookDetails = () => {
                 <hr />
                 <p className="text-xl text-gray-600">{category}</p>
                 <hr />
+                <p className="text-gray-500">Review:{review}</p>
                 <h6 className="font-semibold">Number of Pages: {totalPages}</h6>
                 <h6 className="font-semibold">Publisher: {publisher}</h6>
                 <h6 className="font-semibold">Year of Publishing: {yearOfPublishing}</h6>

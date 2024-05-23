@@ -24,20 +24,20 @@ const Book = ({book}) => {
             <p> By:{author}</p>
          <div className="flex items-center flex-wrap gap-2">
          {
-             tags.map((tag, index)=><span className=" bg-green-100 text-green-600 px-2 py-0.5 rounded whitespace-nowrap" key={index}>#{tag}</span>)
+             tags.map((tag, index)=><span className=" border border-gray-500 rounded whitespace-nowrap" key={index}>#{tag}</span>)
             }
          </div>
             <div className="card-actions justify-between">
               <div className="">{category}</div>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 <span>{rating}</span>
-                <ImStarEmpty />
+                <span className="text-yellow-700"> < ImStarEmpty /></span>
               </div>
             </div>
           </div>
         </div>
       </Link>
-    </div>
+    </div> 
   );
 };
 

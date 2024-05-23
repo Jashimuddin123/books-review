@@ -11,8 +11,8 @@ const Books = () => {
         .then(data=> setBooks(data))
     }, [])
     return (
-        <div>
-            <h2 className="text-5xl text-center">Books card here{books.length} </h2>
+        <div className="mt-20">
+            <h2 className="text-4xl text-center my-6"> All Books Here</h2>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 ">
                 {
              books.map(book=><Book key={book.id} book={book}></Book>)

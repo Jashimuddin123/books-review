@@ -1,0 +1,88 @@
+/* ListedBooks.css */
+.container {
+    max-width: 80%;
+    margin: auto;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: #3498db;
+    color: white;
+}
+
+.sort {
+    margin-bottom: 20px;
+}
+
+.book-list {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+    gap: 20px;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.book-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.book-details {
+    padding: 20px;
+}
+
+.book-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.book-info {
+    margin-bottom: 5px;
+}
+
+.view-details-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .book-card {
+        flex-direction: row;
+    }
+
+    .book-image {
+        width: 30%;
+        height: 260px;
+    }
+
+    .book-details {
+        width: 60%;
+        padding: 20px;
+    }
+}
