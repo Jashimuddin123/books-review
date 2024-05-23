@@ -14,10 +14,15 @@ const BookDetails = () => {
 
     <div>
       <div>
-        <img src={book.image} alt="" />
+        <img className="w-full" src={book.image} alt="" />
       </div>
       <div>
-       
+          <h2>{book.bookName}</h2>
+          <p> By:{book.author}</p> 
+          <hr />
+          <p>{book.category}</p>
+          <hr />
+          <p>{book.review}</p>
       </div>
     </div>
         // <div className="book-details">
