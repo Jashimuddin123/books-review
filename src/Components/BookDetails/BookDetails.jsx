@@ -22,7 +22,7 @@ const BookDetails = () => {
           <hr />
           <p className="text-xl text-gray-600">{book.category}</p>
           <hr />
-          <h6 className="font-semibold">Number of Pages:{book.totalPages}</h6>
+          <h6 className="font-semibold">Number of Page:{book.totalPages}</h6>
           <h6 className="font-semibold">Publisher:{book.publisher}</h6>
           <h6 className="font-semibold">Year of Publishing:{book.publisher}</h6>
           <p className="font-semibold">Rating:{book.rating}</p>
