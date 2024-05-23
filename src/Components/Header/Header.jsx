@@ -47,6 +47,20 @@ const Header = () => {
     <a className="btn bg-sky-500 text-white">Sign Up</a>
   </div>
 </div>
+
+{/* banner section start here */}
+ <div className="w-[1100px] mx-auto">
+ <div className="hero h-[550px] bg-base-200 ">
+  <div className="hero-content flex-col lg:flex-row-reverse">
+    <img src="https://i.ibb.co/6cStdQq/baner-png.png" className="max-w-sm rounded-lg " />
+    <div>
+      <h1 className="text-5xl font-bold">Books to freshen up <br /> your bookshelf!</h1> <br />
+
+      <button className="btn bg-green-500 text-white">View The List</button>
+    </div>
+  </div>
+</div>
+ </div>
         </div>
     );
 };
