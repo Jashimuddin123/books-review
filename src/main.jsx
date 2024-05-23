@@ -8,14 +8,19 @@ import {
 import Root from './Components/Root/Root';
 import ListedBooks from './Components/ListedBooks/ListedBooks';
 import Pages from './Components/Pages/Pages';
-
+import BookDetails from './Components/BookDetails/BookDetails';
+import Books from './Components/Books/Books';
+import Home from './Components/Home/Home';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element:<Root></Root>,
     children:[
-
+        {
+          path:"/",
+          element:<Home></Home>
+        },
       {
         path:"/listebook",
         element:<ListedBooks></ListedBooks>
@@ -24,6 +29,19 @@ const router = createBrowserRouter([
         path:"/pages",
         element:<Pages></Pages>
       },
+      {
+        path:"/books",
+        element:<Books></Books>
+      },
+      {
+        path:"/books/:id",
+        loader: async ({ params }) => {
+          const response = await fetch('/book-data.json');
+          const books = await response.json();
+          return books.find(book => book.bookId === params.id);
+        },
+        element:<BookDetails></BookDetails>
+      }
      
     ]
       
@@ -31,6 +49,6 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}/>
   </React.StrictMode>,
 )
