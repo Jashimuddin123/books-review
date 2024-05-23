@@ -16,39 +16,24 @@ const BookDetails = () => {
       <div>
         <img className="w-[500px] h-[500px] rounded" src={book.image} alt="" />
       </div>
-      <div>
-          <h2>{book.bookName}</h2>
-          <p> By:{book.author}</p> 
+      <div className="space-y-6">
+          <h2 className="text-4xl font-bold ">{book.bookName}</h2>
+          <p className="text-xl text-gray-600"> By:{book.author}</p> 
           <hr />
-          <p>{book.category}</p>
+          <p className="text-xl text-gray-600">{book.category}</p>
           <hr />
-          <p>{book.review}</p>
-          <h6>Number of Pages:{book.totalPages}</h6>
-          <h6>Publisher:{book.publisher}</h6>
-          <h6>Year of Publishing:{book.publisher}</h6>
-          <p>Rating:{book.rating}</p>
-          <div>
-          <Link><button>Read</button></Link>
-          <Link><button>Wishlist</button></Link>
+          <h6 className="font-semibold">Number of Pages:{book.totalPages}</h6>
+          <h6 className="font-semibold">Publisher:{book.publisher}</h6>
+          <h6 className="font-semibold">Year of Publishing:{book.publisher}</h6>
+          <p className="font-semibold">Rating:{book.rating}</p>
+          <div className="flex gap-10">
+          <Link><button className="bg-green-500 text-white py-2 px-8 rounded">Read</button></Link>
+          <Link><button className="bg-sky-500 text-white py-2 px-8 rounded">Wishlist</button></Link>
           </div>
       </div>
     </div>
-        // <div className="book-details">
-        //     <div className="card w-80 bg-base-100 shadow-xl mx-auto">
-        //         <figure>
-        //             <img className="w-56 rounded h-56" src={image} alt="book" />
-        //         </figure>
-        //         <div className="card-body">
-        //             <h2 className="card-title">{bookName}</h2>
-        //             <p>By: {author}</p>
-        //             <div>{category}</div>
-        //             <div className="flex items-center gap-4">
-        //                 <span>{rating}</span>
-        //             </div>
-        //             <p>{description}</p>
-        //         </div>
-        //     </div>
-        // </div>
+   
+        
     );
 };
 
