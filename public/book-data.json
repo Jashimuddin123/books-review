@@ -1,0 +1,81 @@
+[
+    {
+      "bookId": "1",
+      "bookName": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "image": " https://i.ibb.co/K2pZGRV/book1-png.jpg",
+      "review": "A tragic story of Jay Gatsby and his unrequited love for Daisy Buchanan.",
+      "totalPages": 180,
+      "rating": 4.5,
+      "category": "Fiction",
+      "tags": ["Classic", "American Literature"],
+      "publisher": "Charles Scribner's Sons",
+      "yearOfPublishing": 1925
+    },
+    {
+      "bookId": "2",
+      "bookName": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "image": "https://i.ibb.co/vxL6Pzh/book2-png.jpg",
+      "review": "A profound novel on racial injustice and moral growth in the American South.",
+      "totalPages": 281,
+      "rating": 4.8,
+      "category": "Fiction",
+      "tags": ["Classic", "Social Issues"],
+      "publisher": "J.B. Lippincott & Co.",
+      "yearOfPublishing": 1960
+    },
+    {
+      "bookId": "3",
+      "bookName": "1984",
+      "author": "George Orwell",
+      "image": " https://i.ibb.co/SnWbbBg/book3-png.jpg",
+      "review": "A chilling depiction of a totalitarian regime and the dangers of oppressive government.",
+      "totalPages": 328,
+      "rating": 4.6,
+      "category": "Dystopian",
+      "tags": ["Political Fiction", "Science Fiction"],
+      "publisher": "Secker & Warburg",
+      "yearOfPublishing": 1949
+    },
+    {
+      "bookId": "4",
+      "bookName": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "image": " https://i.ibb.co/dQyq9z0/book4-png.jpg",
+      "review": "A witty and romantic tale of love and societal expectations in Regency England.",
+      "totalPages": 279,
+      "rating": 4.7,
+      "category": "Romance",
+      "tags": ["Classic", "British Literature"],
+      "publisher": "T. Egerton",
+      "yearOfPublishing": 1813
+    },
+    {
+      "bookId": "5",
+      "bookName": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "image": " https://i.ibb.co/NpSX2YN/book5-png.jpg",
+      "review": "An exploration of teenage angst and alienation through the eyes of Holden Caulfield.",
+      "totalPages": 214,
+      "rating": 4.3,
+      "category": "Fiction",
+      "tags": ["Classic", "Young Adult"],
+      "publisher": "Little, Brown and Company",
+      "yearOfPublishing": 1951
+    },
+    {
+      "bookId": "6",
+      "bookName": "Moby-Dick",
+      "author": "Herman Melville",
+      "image": " https://i.ibb.co/NW3c2JR/book6-png.jpg",
+      "review": "A gripping and symbolic tale of obsession and the hunt for the great white whale.",
+      "totalPages": 635,
+      "rating": 4.1,
+      "category": "Adventure",
+      "tags": ["Classic", "American Literature"],
+      "publisher": "Harper & Brothers",
+      "yearOfPublishing": 1851
+    }
+  ]
+  
