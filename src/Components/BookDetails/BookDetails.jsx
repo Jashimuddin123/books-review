@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const BookDetails = () => {
     const book = useLoaderData();
@@ -12,9 +12,9 @@ const BookDetails = () => {
 
     return (
 
-    <div>
+    <div className="flex  justify-around mt-10">
       <div>
-        <img className="w-full" src={book.image} alt="" />
+        <img className="w-[500px] h-[500px] rounded" src={book.image} alt="" />
       </div>
       <div>
           <h2>{book.bookName}</h2>
@@ -25,6 +25,12 @@ const BookDetails = () => {
           <p>{book.review}</p>
           <h6>Number of Pages:{book.totalPages}</h6>
           <h6>Publisher:{book.publisher}</h6>
+          <h6>Year of Publishing:{book.publisher}</h6>
+          <p>Rating:{book.rating}</p>
+          <div>
+          <Link><button>Read</button></Link>
+          <Link><button>Wishlist</button></Link>
+          </div>
       </div>
     </div>
         // <div className="book-details">
