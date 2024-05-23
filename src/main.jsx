@@ -8,17 +8,14 @@ import {
 import Root from './Components/Root/Root';
 import ListedBooks from './Components/ListedBooks/ListedBooks';
 import Pages from './Components/Pages/Pages';
-import Home from './Components/Home/Home';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element:<Root></Root>,
     children:[
-      {
-        path:"/",
-        element:<Home></Home>
-      },
+
       {
         path:"/listebook",
         element:<ListedBooks></ListedBooks>
@@ -26,7 +23,8 @@ const router = createBrowserRouter([
       {
         path:"/pages",
         element:<Pages></Pages>
-      }
+      },
+     
     ]
       
   },
