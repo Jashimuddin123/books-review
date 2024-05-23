@@ -23,6 +23,8 @@ const BookDetails = () => {
           <p>{book.category}</p>
           <hr />
           <p>{book.review}</p>
+          <h6>Number of Pages:{book.totalPages}</h6>
+          <h6>Publisher:{book.publisher}</h6>
       </div>
     </div>
         // <div className="book-details">
