@@ -11,11 +11,15 @@ import Pages from './Components/Pages/Pages';
 import BookDetails from './Components/BookDetails/BookDetails';
 import Books from './Components/Books/Books';
 import Home from './Components/Home/Home';
+import NotFound from './Components/NotFound/NotFound';
+import AboutUs from './Components/About/About-Us';
+import ContactUs from './Components/Contact/Contact-us';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element:<Root></Root>,
+    errorElement:<NotFound></NotFound>,
     children:[
         {
           path:"/",
@@ -28,6 +32,14 @@ const router = createBrowserRouter([
       {
         path:"/pages",
         element:<Pages></Pages>
+      },
+      {
+        path:"/about",
+        element:<AboutUs></AboutUs>
+      },
+      {
+        path:"/contact",
+        element:<ContactUs></ContactUs>
       },
       {
         path:"/books",

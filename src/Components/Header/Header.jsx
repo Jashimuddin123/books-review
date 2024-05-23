@@ -8,7 +8,10 @@ const Header = () => {
          
      <li className="  mr-2"><NavLink to="/">Home</NavLink></li>
      <li className="mr-2"><NavLink to="/listebook">Listed Books</NavLink></li>
-     <li className=""><NavLink to="/pages">Pages To Read</NavLink></li>
+     <li className="mr-2"><NavLink to="/pages">Pages To Read</NavLink></li>
+     <li className="mr-2"><NavLink to="/about">About Us</NavLink></li>
+     <li className=""><NavLink to="/contact">Contact US</NavLink></li>
+   
         
      </>
         

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Book = ({book}) => {
   console.log(book);
-  const { bookId, bookName, author, image, category, rating } = book;
+  const {tags, bookId, bookName, author, image, category, rating } = book;
   return (
     <div>
       <Link to={`/books/${bookId}`}>
@@ -22,6 +22,11 @@ const Book = ({book}) => {
             </div>
             <h2 className="card-title">{bookName}</h2>
             <p> By:{author}</p>
+         <div className="flex items-center flex-wrap gap-2">
+         {
+             tags.map((tag, index)=><span className=" bg-green-100 text-green-600 px-2 py-0.5 rounded whitespace-nowrap" key={index}>#{tag}</span>)
+            }
+         </div>
             <div className="card-actions justify-between">
               <div className="">{category}</div>
               <div className="flex items-center gap-4">
